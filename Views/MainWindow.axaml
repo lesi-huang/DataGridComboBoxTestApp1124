@@ -40,6 +40,7 @@
                         <DataTemplate>
                             <ComboBox
                                 ItemsSource="{Binding Options}"
+                                DisplayMemberBinding="{Binding Value}"
                                 SelectedItem="{Binding SelectedOption, Mode=TwoWay}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
