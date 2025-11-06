@@ -16,37 +16,43 @@
         <viewModels:MainWindowViewModel/>
     </Design.DataContext>
 
-    <Grid RowDefinitions="Auto, *">
-        <Button Command="{Binding TriggerCommand}">Trigger</Button>
-        <DataGrid
-            Grid.Row="1"
-            IsReadOnly="True"
-            ScrollViewer.HorizontalScrollBarVisibility="Auto"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            RowHeight="{x:Static x:Double.NaN}"
-            ItemsSource="{Binding Items}">
-            <DataGrid.Styles>
-                <Style Selector="ComboBoxItem">
-                    <Setter Property="FontSize" Value="14" />
-                </Style>
-                <Style Selector="ComboBox.CompactComboBox">
-                    <Setter Property="FontSize" Value="14" />
-                </Style>
-            </DataGrid.Styles>
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTemplateColumn Header="Options">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <ComboBox
-                                ItemsSource="{Binding Options}"
-                                DisplayMemberBinding="{Binding Value}"
-                                SelectedItem="{Binding SelectedOption, Mode=TwoWay}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Selected Option Setter History" Binding="{Binding SelectedOptionSetterHistory}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+    <TabControl>
+        <TabItem Header="Tab 1">
+			<Grid RowDefinitions="Auto, *">
+                <Button Command="{Binding TriggerCommand}">Trigger</Button>
+                <DataGrid
+                    Grid.Row="1"
+                    IsReadOnly="True"
+                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    RowHeight="{x:Static x:Double.NaN}"
+                    ItemsSource="{Binding Items}">
+                    <DataGrid.Styles>
+                        <Style Selector="ComboBoxItem">
+                            <Setter Property="FontSize" Value="14" />
+                        </Style>
+                        <Style Selector="ComboBox.CompactComboBox">
+                            <Setter Property="FontSize" Value="14" />
+                        </Style>
+                    </DataGrid.Styles>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                        <DataGridTemplateColumn Header="Options">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox
+                                        ItemsSource="{Binding Options}"
+                                        DisplayMemberBinding="{Binding Value}"
+                                        SelectedItem="{Binding SelectedOption, Mode=TwoWay}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Selected Option Setter History" Binding="{Binding SelectedOptionSetterHistory}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Tab 2">
+        </TabItem>
+    </TabControl>
 </Window>
